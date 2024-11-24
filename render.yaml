@@ -2,7 +2,11 @@ services:
   - type: web
     name: jdbc-form-app
     env: java
-    buildCommand: "echo 'No build command, already built as WAR file'"  # No build command needed if you have already built the WAR file.
-    startCommand: "java -jar Jdbc_form_op.war"  # Start the WAR file using the java -jar command.
-    plan: free  # Or select another plan (like 'starter' or 'standard')
-    port: 8080  # The default port Render binds your app to (usually 8080).
+    buildCommand: "echo 'No build command, already built as WAR file'"  # No build command needed if you already have the WAR file
+    startCommand: |
+      # Install Java Runtime Environment (JRE) in the Render environment
+      apt-get update && apt-get install -y openjdk-11-jre
+      # Run the WAR file using Java
+      java -jar Jdbc_form_op.war
+    plan: free  # Or you can choose another plan
+    port: 8080  # Port for the application

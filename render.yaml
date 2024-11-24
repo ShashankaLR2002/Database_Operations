@@ -2,6 +2,7 @@ services:
   - type: web
     name: jdbc-form-app
     env: java
-    buildCommand: "echo 'No build step required'"
+    buildCommand: "mvn clean install" # or your specific build command
     startCommand: "java -jar Jdbc_form_op.war"
     plan: free
+    port: 8080

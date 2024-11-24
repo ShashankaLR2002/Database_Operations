@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: jdbc-form-app
+    env: java
+    buildCommand: "echo 'No build step required'"
+    startCommand: "java -jar Jdbc_form_op.war"
+    plan: free
